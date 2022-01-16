@@ -1,5 +1,8 @@
 package spring_introduction;
 
+import org.springframework.stereotype.Component;
+
+@Component()
 public class Person {
 
     private Pet pet;
