@@ -17,7 +17,10 @@ public class RunTestDISecondContext {
 
         //bean scope is 'prototype'
         Dog shepherd_dog = context.getBean("myPetDog", Dog.class);
+        shepherd_dog.say();
+
         Dog terrier = context.getBean("myPetDog", Dog.class);
+        terrier.say();
 
         System.out.println(shepherd_dog);
         System.out.println(terrier);
