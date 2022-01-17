@@ -2,8 +2,8 @@ package spring_introduction;
 
 import org.springframework.stereotype.Component;
 
-@Component()
-public class Dog implements Pet{
+@Component("dogBean")
+public class Dog implements Pet {
     public Dog() {
         System.out.println("Dog bean is created !");
     }
@@ -13,11 +13,11 @@ public class Dog implements Pet{
         System.out.println("Bow Bow");
     }
 
-    public void init(){
+    public void init() {
         System.out.println("Class Dog: init method");
     }
 
-    public void destroy(){
+    public void destroy() {
         System.out.println("Class Dog: destroy method");
     }
 
