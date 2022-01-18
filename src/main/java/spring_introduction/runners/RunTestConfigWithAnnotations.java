@@ -1,6 +1,7 @@
-package spring_introduction;
+package spring_introduction.runners;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring_introduction.entities.Person;
 
 public class RunTestConfigWithAnnotations {
     public static void main(String[] args) {
@@ -11,6 +12,9 @@ public class RunTestConfigWithAnnotations {
 
         Person person = context.getBean("personBean", Person.class);
          person.callYourPet();
+
+        System.out.println(person.getSurname());
+        System.out.println(person.getAge());
 
         context.close();
 

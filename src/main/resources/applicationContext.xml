@@ -11,18 +11,18 @@
     <context:property-placeholder location="triangleApp.properties"/>
 
     <bean id="myPet"
-          class="spring_introduction.Dog"
+          class="spring_introduction.entities.Dog"
     />
 
 
     <bean id="myPet1"
-          class="spring_introduction.Cat"
+          class="spring_introduction.entities.Cat"
           scope="prototype"
     />
 
 
     <bean id="myPerson"
-          class="spring_introduction.Person">
+          class="spring_introduction.entities.Person">
         <property name="pet" ref="myPet"/>
         <property name="surname" value="${person.surname}"/>
         <property name="age" value="${person.age}"/>

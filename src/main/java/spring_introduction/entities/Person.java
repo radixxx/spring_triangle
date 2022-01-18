@@ -1,7 +1,8 @@
-package spring_introduction;
+package spring_introduction.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
@@ -9,7 +10,11 @@ import org.springframework.stereotype.Component;
 public class Person {
 
     private Pet pet;
+
+    @Value("${person.surname}")
     private String surname;
+
+    @Value("${person.age}")
     private int age;
 
     @Autowired
@@ -47,7 +52,7 @@ public class Person {
         this.surname = surname;
     }
 
-    public void callYourPet(){
+    public void callYourPet() {
         System.out.println("Hi my Pet !");
         pet.say();
     }

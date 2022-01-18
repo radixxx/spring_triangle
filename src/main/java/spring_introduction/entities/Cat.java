@@ -1,9 +1,11 @@
-package spring_introduction;
+package spring_introduction.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class Cat implements Pet {
     @Autowired
     public Cat() {

@@ -1,4 +1,4 @@
-package spring_introduction;
+package spring_introduction.runners;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

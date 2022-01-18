@@ -1,4 +1,7 @@
-package spring_introduction;
+package spring_introduction.runners;
+
+import spring_introduction.entities.Cat;
+import spring_introduction.entities.Pet;
 
 public class RunTest {
     public static void main(String[] args) {

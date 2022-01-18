@@ -10,11 +10,11 @@
     <context:annotation-config/>
     <context:property-placeholder location="triangleApp.properties"/>
 
-    <bean id="myPet" class="spring_introduction.Cat"
+    <bean id="myPet" class="spring_introduction.entities.Cat"
           scope="singleton"
     />
 
-    <bean id="myPetDog" class="spring_introduction.Dog"
+    <bean id="myPetDog" class="spring_introduction.entities.Dog"
           init-method="init"
           destroy-method="destroy"
           scope="prototype"
