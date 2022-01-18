@@ -8,9 +8,7 @@ public class RunTestConfigWithAnnotations {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext2.xml");
 
-      /*  Cat greyCat = context.getBean("catBean", Cat.class);
-        greyCat.say();
-*/
+
         Person person = context.getBean("personBean", Person.class);
          person.callYourPet();
 

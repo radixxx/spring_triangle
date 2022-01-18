@@ -1,9 +1,11 @@
 package spring_introduction;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("dogBean")
+//@Component
 public class Dog implements Pet {
+    @Autowired
     public Dog() {
         System.out.println("Dog bean is created !");
     }
