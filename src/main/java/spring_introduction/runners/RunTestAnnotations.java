@@ -15,6 +15,10 @@ public class RunTestAnnotations {
 
         Person person = context.getBean("personBean", Person.class);
         person.callYourPet();
+
+        person.getSurname();
+        person.getAge();
+
         context.close();
 
     }

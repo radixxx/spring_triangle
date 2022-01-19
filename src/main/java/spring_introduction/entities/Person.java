@@ -1,15 +1,15 @@
 package spring_introduction.entities;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 public class Person {
 
     private Pet pet;
 
-    //@Value("${person.surname}")
+    @Value("${person.surname}")
     private String surname;
 
-    //@Value("${person.age}")
+    @Value("${person.age}")
     private int age;
 
     public Person(Pet pet) {
@@ -28,7 +28,7 @@ public class Person {
         System.out.println("Person bean is created");
     }*/
 
-    @Autowired
+    //@Autowired
     public void setPet(Pet pet) {
         System.out.println("Class Person: set pet");
         this.pet = pet;
