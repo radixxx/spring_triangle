@@ -8,5 +8,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @ComponentScan("aop")
 @EnableAspectJAutoProxy
 public class MyConfig {
+    //Aspect class is the class with ASPECT functionality ONLY!
 
 }

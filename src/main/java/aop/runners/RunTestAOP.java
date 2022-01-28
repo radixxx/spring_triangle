@@ -1,6 +1,7 @@
 package aop.runners;
 
-import aop.Library;
+import aop.entites.SchoolLibrary;
+import aop.entites.UniversityLibrary;
 import aop.MyConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -9,8 +10,12 @@ public class RunTestAOP {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(MyConfig.class);
 
-        Library library = context.getBean("libraryBean", Library.class);
-        library.getBook();
+        UniversityLibrary uLibrary = context.getBean("libraryBean", UniversityLibrary.class);
+        uLibrary.getBook();
+        uLibrary.getBook();
+
+        SchoolLibrary sLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
+        sLibrary.getBook();
 
         context.close();
 
