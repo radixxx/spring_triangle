@@ -13,6 +13,9 @@ public class RunTestAOP {
         UniversityLibrary uLibrary = context.getBean("libraryBean", UniversityLibrary.class);
         uLibrary.getBook();
         uLibrary.getBook();
+        uLibrary.getMagazine();
+
+        uLibrary.returnBook();
 
         SchoolLibrary sLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
         sLibrary.getBook();
