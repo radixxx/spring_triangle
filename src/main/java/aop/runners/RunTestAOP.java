@@ -14,10 +14,11 @@ public class RunTestAOP {
         UniversityLibrary uLibrary = context.getBean("libraryBean", UniversityLibrary.class);
         uLibrary.getBook();
         uLibrary.getMagazine();
+        uLibrary.returnMagazine();
+        uLibrary.addBook();
 
        // Book book = context.getBean("book", Book.class);
        // uLibrary.getBook(book);
-
 
         context.close();
 
