@@ -12,20 +12,13 @@ public class RunTestAOP {
                 new AnnotationConfigApplicationContext(MyConfig.class);
 
         UniversityLibrary uLibrary = context.getBean("libraryBean", UniversityLibrary.class);
-        uLibrary.getBook("From Zero to One");
+        uLibrary.getBook();
+        uLibrary.getMagazine();
 
-        uLibrary.getMagazine(18);
-
-        Book book = context.getBean("book", Book.class);
-        uLibrary.getBook(book);
+       // Book book = context.getBean("book", Book.class);
+       // uLibrary.getBook(book);
 
 
-       /* uLibrary.returnBook();
-
-        SchoolLibrary sLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
-        sLibrary.getBook();
-        sLibrary.returnBook();
-*/
         context.close();
 
 
