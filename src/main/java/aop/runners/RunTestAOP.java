@@ -1,5 +1,6 @@
 package aop.runners;
 
+import aop.entites.Book;
 import aop.entites.SchoolLibrary;
 import aop.entites.UniversityLibrary;
 import aop.MyConfig;
@@ -11,16 +12,20 @@ public class RunTestAOP {
                 new AnnotationConfigApplicationContext(MyConfig.class);
 
         UniversityLibrary uLibrary = context.getBean("libraryBean", UniversityLibrary.class);
-        uLibrary.getBook();
-        uLibrary.getBook();
-        uLibrary.getMagazine();
+        uLibrary.getBook("From Zero to One");
 
-        uLibrary.returnBook();
+        uLibrary.getMagazine(18);
+
+        Book book = context.getBean("book", Book.class);
+        uLibrary.getBook(book);
+
+
+       /* uLibrary.returnBook();
 
         SchoolLibrary sLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
         sLibrary.getBook();
         sLibrary.returnBook();
-
+*/
         context.close();
 
 
