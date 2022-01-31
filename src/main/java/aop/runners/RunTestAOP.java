@@ -19,6 +19,7 @@ public class RunTestAOP {
 
         SchoolLibrary sLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
         sLibrary.getBook();
+        sLibrary.returnBook();
 
         context.close();
 

@@ -13,7 +13,7 @@ public class LoggingAspect {
         System.out.println("beforeGetBookAdvice: attempt to get book !");
     }
 
-    @Before("execution(public void aop.entites.UniversityLibrary.returnBook())")
+    @Before("execution(public * returnBook())")
     public void beforeReturnBookAdvice(){
         System.out.println("beforeReturnBookAdvice: attempt to return book !");
     }
