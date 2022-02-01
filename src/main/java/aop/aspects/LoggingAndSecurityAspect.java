@@ -5,6 +5,8 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import java.security.PublicKey;
+
 @Component
 @Aspect
 public class LoggingAndSecurityAspect {
@@ -18,35 +20,45 @@ public class LoggingAndSecurityAspect {
     private void allReturnMethods(){}
 
     @Pointcut("allGetMethodsFromUniLib() || allReturnMethods()")
-    private void allGetAndReturnMethodsFromUniLib(){
+    private void allGetAndReturnMethodsFromUniLib(){}
 
-    }
+    //Universal Pointcut
+    @Pointcut("execution(* aop.entites.UniversityLibrary.*(..))")
+    private void allMethodsFromUniLibrary(){}
+
+    @Pointcut("execution(* aop.entites.UniversityLibrary.returnMagazine())")
+    public void returnMagazineFromUniLib(){}
+
+    //Pointcut except one of the both methods
+    @Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLib()")
+    public void allMethodsExceptReturnMagazine(){}
+
 
     @Before("allGetMethodsFromUniLib()")
     public void beforeGetLoggingAdvice(){
-        System.out.println("beforeGetLoggingAdvice: get-log #1");
+        System.out.println("beforeGetLoggingAdvice: Get-log #1");
     }
 
 
     @Before("allReturnMethods()")
     public void beforeReturnLoggingAdvice(){
-        System.out.println("beforeReturnLoggingAdvice: return-log #2");
+        System.out.println("beforeReturnLoggingAdvice: Return-log #2");
     }
 
     @Before("allGetAndReturnMethodsFromUniLib()")
     public void beforeGetAndReturnLoggingAdvice(){
-        System.out.println("beforeGetAndReturnLoggingAdvice: get_return-log #3");
+        System.out.println("beforeGetAndReturnLoggingAdvice: Get_Return-log #3");
     }
 
+    @Before("allMethodsFromUniLibrary()")
+    public void beforeAllMethodsFromUniLibraryAdvice(){
+        System.out.println("beforeAllMethodsFromUniLibraryAdvice: Get-Add-log #4");
+    }
 
-
-
-
-
-
-
-
-
+    @Before("allMethodsExceptReturnMagazine()")
+    public void beforeAllMethodsExceptReturnMagazineAdvice(){
+        System.out.println("beforeAllMethodsExceptReturnMagazineAdvice: All-!Return #5");
+    }
 
 
 
