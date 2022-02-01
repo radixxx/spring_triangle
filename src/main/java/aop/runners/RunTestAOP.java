@@ -1,9 +1,7 @@
 package aop.runners;
 
-import aop.entites.Book;
-import aop.entites.SchoolLibrary;
-import aop.entites.UniversityLibrary;
 import aop.MyConfig;
+import aop.entites.UniversityLibrary;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class RunTestAOP {

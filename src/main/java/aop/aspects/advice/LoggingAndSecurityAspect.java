@@ -1,11 +1,9 @@
-package aop.aspects;
+package aop.aspects.advice;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
-
-import java.security.PublicKey;
 
 @Component
 @Aspect
@@ -59,23 +57,5 @@ public class LoggingAndSecurityAspect {
     public void beforeAllMethodsExceptReturnMagazineAdvice(){
         System.out.println("beforeAllMethodsExceptReturnMagazineAdvice: All-!Return #5");
     }
-
-
-
-
-
-
-  /*  @Pointcut("execution(* get*())")
-    private void allGetMethods(){}
-
-    @Before("allGetMethods()")
-    public void beforeGetLoggingAdvice(){
-        System.out.println("beforeGetLoggingAdvice: attempt to get book !");
-    }
-
-    @Before("allGetMethods()")
-    public void beforeGetSecurityAdvice(){
-        System.out.println("beforeGetSecurityAdvice: validation permissions to get: " + "magazine/book");
-    }*/
 
 }
