@@ -13,4 +13,11 @@ public class ExceptionHandlingAspect {
     public void beforeExceptionHandlingAdvice(){
         System.out.println("beforeExceptionHandlingAdvice: catch " + "exception trying to get book/magazine");
     }
+
+
+    @Before("aop.aspects.pointcuts.MyPointcuts.allAddMethods()")
+    public void beforeAddExceptionHandlingAdvice(){
+        System.out.println("beforeExceptionHandlingAdvice: catch " + "exception trying to get book/magazine");
+        System.out.println("-----------------------------------------");
+    }
 }

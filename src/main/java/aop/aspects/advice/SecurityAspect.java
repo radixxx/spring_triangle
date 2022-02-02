@@ -15,4 +15,10 @@ public class SecurityAspect {
         System.out.println("beforeGetSecurityAdvice: validation permissions to get: " + "magazine/book");
     }
 
+    @Before("aop.aspects.pointcuts.MyPointcuts.allAddMethods()")
+    public void beforeAddSecurityAdvice(){
+        System.out.println("beforeAddSecurityAdvice: validation permissions to get:" + "magazine/book");
+        System.out.println("------------------------------");
+    }
+
 }
