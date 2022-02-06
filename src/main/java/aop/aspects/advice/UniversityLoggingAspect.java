@@ -1,13 +1,9 @@
 package aop.aspects.advice;
 
 import aop.entites.Student;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 @Component
@@ -41,4 +37,12 @@ public class UniversityLoggingAspect {
     public void afterThrowingStudentsLoggingAdvice(Throwable exception){
         System.out.println("afterThrowingStudentsLoggingAdvice: logging throwing: " + exception);
     }
+
+
+    @After("execution(* getStudents())")
+    public void afterGetStudentsLoggingAdvice(){
+        System.out.println("afterGetStudentsLoggingAdvice: finishing correct"
+                + " or throw exception");
+    }
+
 }
