@@ -1,5 +1,6 @@
-package hibernate;
+package hibernate.runner;
 
+import hibernate.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,12 +15,14 @@ public class RunTestHibernate {
 
         try{
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Tom", "Dat", "IT", 850);
+            Employee employee = new Employee("Dan", "Ronski", "Sales", 950);
 
             session.beginTransaction(); //save the created obj
             session.save(employee); //insert
 
             session.getTransaction().commit(); //always need to close session !
+
+            System.out.println("Done");
         } finally {
             factory.close();
         }
