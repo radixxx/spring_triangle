@@ -6,23 +6,29 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class RunTestHibernate {
+public class RunTestHibernateDelete {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
                 .buildSessionFactory();
 
-        try{
+        try {
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Kenn", "Ronski", "Sales", 1950);
-
             session.beginTransaction(); //save the created obj
-            session.save(employee); //insert
 
-            session.getTransaction().commit(); //always need to close session !
+            //version 1
+            Employee employee = session.get(Employee.class, 5);
+            session.delete(employee);
+
+            //version 2
+            session.createQuery("delete Employee " +
+                    "where name = 'Name_of_bjc'").executeUpdate();
+
+            session.getTransaction().commit();
 
             System.out.println("Done");
+
         } finally {
             factory.close();
         }
