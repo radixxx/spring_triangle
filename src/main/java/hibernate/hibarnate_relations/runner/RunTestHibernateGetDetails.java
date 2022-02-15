@@ -1,29 +1,33 @@
-package hibernate.runner;
+package hibernate.hibarnate_relations.runner;
 
-import hibernate.entites.Employee;
+
+import hibernate.hibarnate_relations.relatedEntities.Detail;
+import hibernate.hibarnate_relations.relatedEntities.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class RunTestHibernate {
+public class RunTestHibernateGetDetails {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
+        Session session = null;
         try{
-            Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Kenn", "Ronski", "Sales", 1950);
 
+            session = factory.getCurrentSession();
             session.beginTransaction(); //save the created obj
-            session.save(employee); //insert
+            Detail detail = session.get(Detail.class, 5);
+
 
             session.getTransaction().commit(); //always need to close session !
-
             System.out.println("Done");
         } finally {
+            session.close();
             factory.close();
         }
 

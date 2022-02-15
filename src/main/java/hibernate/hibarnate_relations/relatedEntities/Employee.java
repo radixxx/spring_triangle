@@ -1,4 +1,4 @@
-package hibernate;
+package hibernate.hibarnate_relations.relatedEntities;
 
 import javax.persistence.*;
 
@@ -22,6 +22,10 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
+
+    @OneToOne(cascade = CascadeType.ALL) // if we delete emp, all related with him details will be deleted
+    @JoinColumn(name = "details_id") // indicate to relationships between column and obj
+    private Detail empDetail;
 
     public Employee() {
     }
@@ -82,5 +86,13 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
     }
 }
