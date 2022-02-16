@@ -1,14 +1,14 @@
-package hibernate.hibarnate_relations.runner;
+package hibernate.hibarnate_relation_one2one.runner;
 
 
-import hibernate.hibarnate_relations.relatedEntities.Detail;
-import hibernate.hibarnate_relations.relatedEntities.Employee;
+import hibernate.hibarnate_relation_one2one.relatedEntities.Detail;
+import hibernate.hibarnate_relation_one2one.relatedEntities.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class  RunTestHibernate {
+public class RunTestHibernateDeleteDetails {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -16,20 +16,19 @@ public class  RunTestHibernate {
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
+        Session session = null;
         try{
-            Session session = factory.getCurrentSession();
 
-            Employee employee = new Employee("Ben", "Mann", "Sales", 900);
-            Detail detail = new Detail("Moscow", "+38057585", "ben_mann@mail.com");
-
-            employee.setEmpDetail(detail);
+            session = factory.getCurrentSession();
             session.beginTransaction(); //save the created obj
+            Detail detail = session.get(Detail.class, 5);
 
-            session.save(employee);
+            session.delete(detail);
 
             session.getTransaction().commit(); //always need to close session !
             System.out.println("Done");
         } finally {
+            session.close();
             factory.close();
         }
 

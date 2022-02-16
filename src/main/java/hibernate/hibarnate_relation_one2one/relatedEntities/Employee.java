@@ -1,4 +1,4 @@
-package hibernate.hibarnate_relations.relatedEntities;
+package hibernate.hibarnate_relation_one2one.relatedEntities;
 
 import javax.persistence.*;
 

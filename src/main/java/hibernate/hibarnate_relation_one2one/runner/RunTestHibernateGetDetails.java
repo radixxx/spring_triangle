@@ -1,8 +1,8 @@
-package hibernate.hibarnate_relations.runner;
+package hibernate.hibarnate_relation_one2one.runner;
 
 
-import hibernate.hibarnate_relations.relatedEntities.Detail;
-import hibernate.hibarnate_relations.relatedEntities.Employee;
+import hibernate.hibarnate_relation_one2one.relatedEntities.Detail;
+import hibernate.hibarnate_relation_one2one.relatedEntities.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
