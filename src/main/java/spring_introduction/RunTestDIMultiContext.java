@@ -8,6 +8,9 @@ public class RunTestDIMultiContext {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml", "applicationContext1.xml");
 
+        Dog myDog = context.getBean("myPet", Dog.class);
+        myDog.say();
 
+        context.close();
     }
 }
