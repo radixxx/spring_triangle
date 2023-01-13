@@ -1,6 +1,7 @@
-package spring_introduction;
+package spring_introduction.runners;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring_introduction.entety.Dog;
 
 public class RunTestDIMultiContext {
     public static void main(String[] args) {

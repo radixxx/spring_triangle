@@ -8,17 +8,17 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean id="myPet" class="spring_introduction.Dog"
+    <bean id="myPet" class="spring_introduction.entety.Dog"
           init-method="init"
           destroy-method="destroy"
           scope="singleton"
     />
 
-    <bean id="myPetDog" class="spring_introduction.Dog"
+    <bean id="myPetDog" class="spring_introduction.entety.Dog"
           scope="prototype"
     />
 
-    <bean id="myPetCat" class="spring_introduction.Cat"
+    <bean id="myPetCat" class="spring_introduction.entety.Cat"
           init-method="init"
           destroy-method="destroy"
           scope="prototype"

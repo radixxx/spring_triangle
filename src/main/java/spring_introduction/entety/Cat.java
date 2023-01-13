@@ -1,4 +1,4 @@
-package spring_introduction;
+package spring_introduction.entety;
 
 import org.springframework.stereotype.Component;
 @Component("catBean")

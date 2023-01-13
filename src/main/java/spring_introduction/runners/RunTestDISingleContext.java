@@ -1,6 +1,8 @@
-package spring_introduction;
+package spring_introduction.runners;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring_introduction.entety.Cat;
+import spring_introduction.entety.Dog;
 
 public class RunTestDISingleContext {
     public static void main(String[] args) {
