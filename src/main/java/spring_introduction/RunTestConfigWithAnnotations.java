@@ -14,6 +14,9 @@ public class RunTestConfigWithAnnotations {
         Dog dog = context.getBean("dog", Dog.class);
         dog.say();
 
+        Person  person = context.getBean("personBean", Person.class);
+        person.callYourPet();
+
         context.close();
     }
 }
