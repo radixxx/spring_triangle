@@ -8,7 +8,7 @@ import spring_introduction.entety.Pet;
 @Configuration
 @ComponentScan("spring_introduction")
 @PropertySource("classpath:triangleApp.properties")
-public class Config1 { 
+public class Config1 {
 
     @Bean
     @Scope("singleton")
