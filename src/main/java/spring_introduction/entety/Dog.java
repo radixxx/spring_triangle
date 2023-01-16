@@ -3,8 +3,8 @@ package spring_introduction.entety;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("singleton")
+//@Component
+//@Scope("singleton")
 public class Dog implements Pet{
     private String name;
     public Dog() {

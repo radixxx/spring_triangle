@@ -5,7 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring_introduction.Config;
 import spring_introduction.entety.Person;
-import spring_introduction.entety.Pet;
+
 
 public class RunTestConfigClass {
     public static void main(String[] args) {
