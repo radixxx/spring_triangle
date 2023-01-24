@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
     @Before("execution(public * get*(..))") // it's a PointCut - when should execute Aspect code
+    public void beforeGetBookAdviceWildcard(){
+        System.out.println("beforeGetBookAdviceWildcard: Attempt to get the book");
+    }
+    @Before("execution(public * getBook(aop.entity.Book, ..))") // it's a PointCut - when should execute Aspect code
     public void beforeGetBookAdvice(){
         System.out.println("beforeGetBookAdvice: Attempt to get the book");
     }
@@ -20,7 +24,7 @@ public class LoggingAspect {
     public void beforeReturnBookAdvice(){
         System.out.println("beforeReturnBookAdvice: Attempt to return the book");
     }
-    @Before("execution(* *())")
+    @Before("execution(* *(..))")
     public String testPointCutMethod(){
         return "Test Point Cut Method";
     }
