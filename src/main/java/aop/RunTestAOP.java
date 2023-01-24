@@ -13,15 +13,9 @@ public class RunTestAOP {
         Book book = context.getBean(Book.class);
 
         UniversityLibrary library = context.getBean(UniversityLibrary.class);
-        library.getBook(book);
-        library.returnBook();
-        library.getMagazine();
-
-        SchoolLibrary schoolLibrary = context.getBean(SchoolLibrary.class);
-        schoolLibrary.getBook("Peace and War");
-        schoolLibrary.returnMagazine();
-
-
+       library.getMagazine();
+       library.getBook();
+       library.returnBook();
 
         context.close();
     }

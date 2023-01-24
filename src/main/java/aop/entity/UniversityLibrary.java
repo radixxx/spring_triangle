@@ -7,7 +7,10 @@ public class UniversityLibrary{
     public void getBook(Book book){
         System.out.println("Get book from University library: " + book);
     }
-
+    public void getBook(){
+        System.out.println("Get book from University library");
+    }
+    
     public void returnBook(){
         System.out.println("Return book from University library");
     }
