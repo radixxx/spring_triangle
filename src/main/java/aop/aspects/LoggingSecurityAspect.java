@@ -15,11 +15,48 @@ public class LoggingSecurityAspect {
     * private void allGetMethods(){}
     * */
 
+    @Pointcut("execution(* aop.entity.SchoolLibrary.get*())")
+    private void allGetMethodsFromSchoolLibrary(){}
+
+    @Before("allGetMethodsFromSchoolLibrary()")
+    public void beforeGetLoggingAdvice(){
+        System.out.println("beforeGetLoggingAdvice: Log #1");
+    }
+
+    @Pointcut("execution(* aop.entity.SchoolLibrary.return*())")
+    private void allReturnMethodsFromSchoolLibrary(){}
+
+    @Before("allReturnMethodsFromSchoolLibrary()")
+    public void beforeReturnLoggingAdvice(){
+        System.out.println("beforeGetLoggingAdvice: Log #2");
+    }
+
+    @Pointcut("execution(* aop.entity.SchoolLibrary.add*())")
+    private void allAddMethodsFromSchoolLibrary(){}
+
+    @Before("allAddMethodsFromSchoolLibrary()")
+    public void beforeAddMethodsFromSchoolLibrary(){
+        System.out.println("beforeGetLoggingAdvice: Log #3");
+    }
+
+    /*********Combain***********/
+    @Pointcut("allGetMethodsFromSchoolLibrary() || allAddMethodsFromSchoolLibrary()")
+    public void beforeAllGetAddMethodsFromSchoolLibrary(){
+        System.out.println("beforeGetAddLoggingAdvice: Log #4");
+    }
+
+    @Pointcut("allReturnMethodsFromSchoolLibrary() || allGetMethodsFromSchoolLibrary()")
+    private void beforeAllReturnGetmethods(){
+        System.out.println("beforeAllReturnGetmethods: Log #5");
+    }
+
+/*
     @Pointcut("execution(* get*())")
     private void allGetMethods(){}
 
     @Pointcut("execution(* return*())")
-    private void allReturnMethods(){}
+    private void allReturnMethods(){
+    }
 
     @Before("allReturnMethods()")
     public void beforeReturnSecurityAdvice(){
@@ -33,5 +70,5 @@ public class LoggingSecurityAspect {
     @Before("allGetMethods()")
     public void beforeGetSecurityAdvice(){
         System.out.println("beforeGetSecurityAdvice: Check permissions to get the book/magazine");
-    }
+    }*/
 }
