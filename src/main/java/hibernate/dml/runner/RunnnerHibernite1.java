@@ -1,11 +1,11 @@
-package hibernate.runner;
+package hibernate.dml.runner;
 
-import hibernate.entity.Employee;
+import hibernate.dml.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class RunnnerHibernite4 {
+public class RunnnerHibernite1 {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
@@ -14,11 +14,16 @@ public class RunnnerHibernite4 {
                 .buildSessionFactory();
         try {
             Session session = sessionFactory.getCurrentSession();
+            Employee employee = new Employee("Jef", "Bond", "HR",  400);
             session.beginTransaction();
-            Employee employee = session.get(Employee.class, 2);
-            session.delete(employee);
+            session.save(employee);
+            //session.getTransaction().rollback();
 
+            int id = employee.getId();
+            Employee emp = session.get(Employee.class, id);
             session.getTransaction().commit();
+            System.out.println("From DB: " + emp);
+
         } finally {
             sessionFactory.close();
         }

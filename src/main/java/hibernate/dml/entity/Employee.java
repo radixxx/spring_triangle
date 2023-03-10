@@ -1,8 +1,7 @@
-package hibernate.entity;
+package hibernate.dml.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 
