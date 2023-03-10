@@ -25,13 +25,13 @@ public class Employee {
     private String department;
 
     @Column(name = "salary")
-    private String salary;
+    private int salary;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
     private Detail empDetail;
 
-    public Employee(String name, String surname, String department, String salary) {
+    public Employee(String name, String surname, String department, int salary) {
         this.name = name;
         this.surname = surname;
         this.department = department;

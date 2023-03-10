@@ -1,25 +1,28 @@
-package hibernate.dml.runner;
+package hibernate.relations.runner;
 
-import hibernate.dml.entity.Employee;
+import hibernate.relations.entity.Detail;
+import hibernate.relations.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class RunnnerHibernite4 {
+public class RunnnerHiberniteDelete {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
-        try {
-            Session session = sessionFactory.getCurrentSession();
-            session.beginTransaction();
-            Employee employee = session.get(Employee.class, 2);
-            session.delete(employee);
 
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            session.beginTransaction();
+            Employee employee = session.get(Employee.class, 12);
+            session.delete(employee);
             session.getTransaction().commit();
         } finally {
+            session.close();
             sessionFactory.close();
         }
     }

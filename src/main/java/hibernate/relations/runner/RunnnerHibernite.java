@@ -1,6 +1,7 @@
 package hibernate.relations.runner;
 
-import hibernate.dml.entity.Employee;
+import hibernate.relations.entity.Detail;
+import hibernate.relations.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,20 +12,22 @@ public class RunnnerHibernite {
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
-        try {
-            Session session = sessionFactory.getCurrentSession();
-            Employee employee = new Employee("Jef", "Bond", "HR",  400);
-            session.beginTransaction();
-            session.save(employee);
-            //session.getTransaction().rollback();
 
-            int id = employee.getId();
-            Employee emp = session.get(Employee.class, id);
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            Employee employee = new Employee("Gleb", "Swarowski", "DEV", 1790);
+            Detail detail = new Detail("Chisinau",  "37907062", "test.gleb@mail.com");
+            employee.setEmpDetail(detail);
+            session.beginTransaction();
+           /* Employee employee = session.get(Employee.class, 9);
+            session.delete(employee);*/
+            session.save(employee);
             session.getTransaction().commit();
-            System.out.println("From DB: " + emp);
 
         } finally {
+            session.close();
             sessionFactory.close();
         }
     }

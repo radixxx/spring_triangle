@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class RunnnerHibernite3 {
+public class RunnnerHiberniteDelete {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
@@ -15,8 +15,8 @@ public class RunnnerHibernite3 {
         try {
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            session.createQuery("update Employee set salary=1333" +
-                    "where name = 'Tom'").executeUpdate();
+            Employee employee = session.get(Employee.class, 2);
+            session.delete(employee);
 
             session.getTransaction().commit();
         } finally {
