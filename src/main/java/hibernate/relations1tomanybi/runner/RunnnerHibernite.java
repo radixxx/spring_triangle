@@ -1,7 +1,8 @@
-package hibernate.relations.runner;
+package hibernate.relations1tomanybi.runner;
 
-import hibernate.relations.entity.Detail;
-import hibernate.relations.entity.Employee;
+import hibernate.relations1to1.entity.Detail;
+import hibernate.relations1tomanybi.entity.Employee;
+import hibernate.relations1tomanybi.entity.Department;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,18 +13,20 @@ public class RunnnerHibernite {
         SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Detail.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
 
         Session session = sessionFactory.getCurrentSession();
         try {
-            Employee employee = new Employee("Gleb", "Swarowski", "DEV", 1790);
-            Detail detail = new Detail("Chisinau",  "37907062", "test.gleb@mail.com");
-            employee.setEmpDetail(detail);
+            var department = new Department("Testing", "10000", "1500");
+            var employee = new Employee("Dan", "Kiki", "4000");
+            var employee1 = new Employee("Olga", "Tomphson", "2000");
+
+            department.addEmployeeToDepartment(employee);
+            department.addEmployeeToDepartment(employee1);
+
             session.beginTransaction();
-           /* Employee employee = session.get(Employee.class, 9);
-            session.delete(employee);*/
-            session.save(employee);
+            session.save(department);
             session.getTransaction().commit();
 
         } finally {

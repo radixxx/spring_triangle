@@ -1,4 +1,4 @@
-package hibernate.relations.entity;
+package hibernate.relations1to1.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
