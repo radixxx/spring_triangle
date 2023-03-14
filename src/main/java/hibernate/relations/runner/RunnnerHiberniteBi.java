@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class RunnnerHiberniteDelete {
+public class RunnnerHiberniteBi {
     public static void main(String[] args) {
 
         SessionFactory sessionFactory = new Configuration()
@@ -15,11 +15,16 @@ public class RunnnerHiberniteDelete {
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
-        Session session = sessionFactory.getCurrentSession();
+        Session session = null;
         try {
+            session = sessionFactory.getCurrentSession();
+            Employee employee = new Employee("Andreq", "Slat", "IT", 4500);
+            Detail detail = new Detail("Chisinau", "78956713", "andrew@mail.com");
+
+            employee.setEmpDetail(detail);
+            detail.setEmployee(employee);
             session.beginTransaction();
-            Employee employee = session.get(Employee.class, 12);
-            session.delete(employee);
+            session.save(detail);
             session.getTransaction().commit();
         } finally {
             session.close();
