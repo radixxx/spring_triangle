@@ -18,7 +18,7 @@ public class RunnnerHibernite {
 
         Session session = sessionFactory.getCurrentSession();
         try {
-            var department = new Department("Testing", "10000", "1500");
+            var department = new Department("Testing ", "10000", "1500");
             var employee = new Employee("Dan", "Kiki", "4000");
             var employee1 = new Employee("Olga", "Tomphson", "2000");
 
